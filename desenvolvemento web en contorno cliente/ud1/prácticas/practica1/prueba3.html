@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Listas - Tablas - Columnas - Formularios</title>
+	</head>
+	<body>
+		<h1>Ejemplos de Listas, Tablas y Formularios</h1>
+
+		<h2>Sección de Listas</h2>
+
+		<h3>Lista Desordenada de Lenguajes</h3>
+		<ul>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>Javascript</li>
+			<li>Python</li> <!-- Añadido -->
+		</ul>
+
+		<h3>Lista Ordenada de Prioridades</h3>
+		<ol>
+			<li>Aprender HTML</li>
+			<li>Aprender CSS</li>
+			<li>Aprender Javascript</li>
+			<li>Aprender un framework (React, Angular, etc.)</li> <!-- Añadido -->
+		</ol>
+
+		<h3>Lista Anidada de Temas de Desarrollo Web</h3>
+		<ol>
+			<li>HTML</li>
+			<li>CSS
+				<ul>
+					<li>Responsive Design</li>
+					<li>Flexbox</li>
+					<li>Grid Layout</li> <!-- Añadido -->
+				</ul>
+			</li>
+			<li>Javascript</li>
+		</ol>
+
+		<h2>Menú de Navegación (sin CSS)</h2>
+		<ul>
+			<li><a href="#">Inicio</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Contacto</a></li>
+			<li><a href="#">Sobre nosotros</a></li> <!-- Añadido -->
+		</ul>
+
+		<h2>Sección de Tablas</h2>
+		<h3>Tabla de Contactos</h3>
+		<table border="1" cellpadding="5" cellspacing="0">
+			<tr>
+				<th>Nombre</th>
+				<th>Teléfono</th>
+				<th>Dirección</th>
+				<th>Correo Electrónico</th> <!-- Añadido -->
+			</tr>
+			<tr>
+				<td>Bea RC</td>
+				<td>33333333</td>
+				<td>Cangas</td>
+				<td>bea@example.com</td> <!-- Añadido -->
+			</tr>
+			<tr>
+				<td>Esteban</td>
+				<td>55555555</td>
+				<td>Oviedo</td> <!-- Añadido -->
+				<td>esteban@example.com</td> <!-- Añadido -->
+			</tr>
+			<tr>
+				<td>Cesar</td>
+				<td>66666666</td>
+				<td>Gijón</td> <!-- Añadido -->
+				<td>cesar@example.com</td> <!-- Añadido -->
+			</tr>
+		</table>
+
+		<h2>Formulario de Contacto</h2>
+		<form action="#" method="post">
+			<label for="nombre">Nombre:</label>
+			<input type="text" id="nombre" name="nombre" required><br><br>
+
+			<label for="telefono">Teléfono:</label>
+			<input type="tel" id="telefono" name="telefono"><br><br>
+
+			<label for="email">Correo Electrónico:</label>
+			<input type="email" id="email" name="email" required><br><br>
+
+			<label for="mensaje">Mensaje:</label><br>
+			<textarea id="mensaje" name="mensaje" rows="4" cols="50"></textarea><br><br>
+
+			<input type="submit" value="Enviar">
+		</form>
+	</body>
+</html>
