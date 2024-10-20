@@ -1,4 +1,4 @@
-package programación.ud3.restaurante;
+package programación.ud3.Exercicios.restaurante;
 
 import java.util.List;
 
