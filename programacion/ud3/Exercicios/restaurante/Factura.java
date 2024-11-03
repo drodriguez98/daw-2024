@@ -1,4 +1,4 @@
-package programación.ud3.Exercicios.restaurante;
+package programacion.ud3.Exercicios.restaurante;
 
 public class Factura {
 
