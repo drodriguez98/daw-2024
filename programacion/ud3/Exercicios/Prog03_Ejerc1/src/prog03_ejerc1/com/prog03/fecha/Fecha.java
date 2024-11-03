@@ -1,12 +1,18 @@
-package programacion.ud3.Exercicios.prog03_exercicio1;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package prog03_ejerc1.com.prog03.fecha;
 
+/**
+ *
+ * @author diego
+ */
 public class Fecha {
-
+    
     // Definición del tipo enumerado para los meses
-    public enum enumMes {
-        ENERO, FEBRERO, MARZO, ABRIL, MAYO, JUNIO,
-        JULIO, AGOSTO, SEPTIEMBRE, OCTUBRE, NOVIEMBRE, DICIEMBRE
-    }
+    public enum enumMes { ENERO, FEBRERO, MARZO, ABRIL, MAYO, JUNIO, JULIO, AGOSTO, SEPTIEMBRE, OCTUBRE, NOVIEMBRE, DICIEMBRE }
 
     // Atributos de la clase
     private int dia;
@@ -28,31 +34,19 @@ public class Fecha {
     }
 
     // Métodos get y set para el atributo 'dia'
-    public int getDia() {
-        return dia;
-    }
+    public int getDia() { return dia; }
 
-    public void setDia(int dia) {
-        this.dia = dia;
-    }
+    public void setDia(int dia) { this.dia = dia; }
 
     // Métodos get y set para el atributo 'mes'
-    public enumMes getMes() {
-        return mes;
-    }
+    public enumMes getMes() { return mes; }
 
-    public void setMes(enumMes mes) {
-        this.mes = mes;
-    }
+    public void setMes(enumMes mes) { this.mes = mes; }
 
     // Métodos get y set para el atributo 'anio'
-    public int getAnio() {
-        return anio;
-    }
+    public int getAnio() { return anio; }
 
-    public void setAnio(int anio) {
-        this.anio = anio;
-    }
+    public void setAnio(int anio) { this.anio = anio; }
 
     // Método que indica si la fecha está en verano
     public boolean isSummer() {
@@ -63,4 +57,5 @@ public class Fecha {
     public String toString() {
         return dia + " de " + mes.toString().toLowerCase() + " del " + anio;
     }
+    
 }
