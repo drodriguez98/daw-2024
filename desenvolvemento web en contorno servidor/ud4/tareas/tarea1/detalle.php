@@ -10,7 +10,7 @@ if (!isset($_GET['id'])) {
 $id = $_GET['id'];
 
 try {
-    // Corregir la consulta para usar familia_id
+    // Obtener los detalles del producto en la base de datos
     $stmt = $pdo->prepare("SELECT p.*, f.nombre AS familia FROM productos p JOIN familias f ON p.familia_id = f.id WHERE p.id = ?");
     $stmt->execute([$id]);
     $producto = $stmt->fetch();
@@ -50,7 +50,7 @@ try {
         </tr>
         <tr>
             <th>Familia</th>
-            <td><?php echo $producto['familia']; ?></td> <!-- Mostramos el nombre de la familia -->
+            <td><?php echo $producto['familia']; ?></td> <!-- Mostrar el nombre de la familia -->
         </tr>
         <tr>
             <th>Descripción</th>

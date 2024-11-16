@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $familia = $_POST['familia'];
         $descripcion = $_POST['descripcion'];
 
-        // Actualizar el producto (usando familia_id en lugar de familia)
+        // Actualizar el producto en la base de datos con los nuevos datos intorducidos
         $stmt = $pdo->prepare("UPDATE productos SET nombre = ?, nombre_corto = ?, precio = ?, familia_id = ?, descripcion = ? WHERE id = ?");
         $stmt->execute([$nombre, $nombre_corto, $precio, $familia, $descripcion, $id]);
 
