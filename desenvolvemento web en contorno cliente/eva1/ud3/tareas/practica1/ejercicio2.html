@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cálculo edad</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <h1>Indica la fecha de tu cumpleaños.</h1>
+
+    <!--El atributo action indica la página a la que se envían los datos del formulario. Si este atributo está vacío, 
+    es la página que contiene el formulario la que se recargará con los datos como parámetros -->
+
+    <form name="miFormulario" action="javascript:calculo()">
+        <input type="date" name="fechaNacimiento" id="fechaNacimiento" required="" />
+        <input type="submit" name="enviar" id="boton" value="Enviar fecha" />
+    </form>
+
+    <div id="resultado" name="resultadoSeccion"></div>
+
+</body>
+<script>
+
+    function calculo() {
+        let cadena = document.getElementById("fechaNacimiento").value;
+        console.log(cadena); //La cadena se obtiene en el formato aaaa-mm-dd
+
+        let fArray = cadena.split("-"); //Convierto la cadena en un Array utilizando el separador guión
+        console.log(fArray);
+
+        let fechaNacimiento = new Date(fArray[0], fArray[1] - 1, fArray[2]);
+        console.log(fechaNacimiento);
+
+        let hoy = new Date();
+        let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+
+        //Ahora comprobamos si todavía no hemos llegado a su cumpleaños en el año en curso (restaríamos un año)
+        if (hoy.getMonth() < fechaNacimiento.getMonth()) { //No hemos llegado al mes
+            edad--;
+        } else if (hoy.getMonth() == fechaNacimiento.getMonth()) { //Estamos en el mes de su cumpleaños
+            if (hoy.getDate() < fechaNacimiento.getDate()) {
+                edad--;
+            }
+        }
+
+        //Crear la estructura de nodos para mostrar el resultado con el formato adecuado
+        const tituloH1 = document.createElement('h1');
+        tituloH1.innerHTML = `Tu edad es ${edad} años`;
+
+        //Añadir el texto a la sección div
+        document.getElementById("resultado").append(tituloH1);
+        document.miFormulario.fechaNacimiento.value = ""; //Vacío el formulario
+
+
+        // A continuación añadimos un trozo de código en el que creamos un nodo de tipo parrafo 
+        // el cual se añade como hijo de la seccion div resultado
+        // Se muestra de tres formas distintas. Podeis comentar y descomentar el código. 
+        // También abrir la consola para comprobar los contenidos que se muestran
+
+        //Crear un nuevo nodo
+
+        const parrafo = document.createElement("p");
+        parrafo.innerText = "CURSO DAW -2024/2025"
+        console.log(parrafo);
+
+        //document.getElementById("resultado").append(parrafo);  // Añadimos "parrafo" como hijo de body
+
+        //Otra forma de acceder sin utilizar los métodos de la estructura DOM. Para ello es necesario asignar un name a los elementos del formulario
+        // document.miFormulario.resultadoSeccion.append(parrafo);
+
+        //Otra forma de acceder 
+        document.querySelectorAll('div')[0].append(parrafo);
+        console.log(document.forms[0].name);
+        console.log(document.querySelectorAll('div')[0]);
+
+    }
+
+</script>
+
+</html>

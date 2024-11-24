@@ -1,0 +1,84 @@
+<html>
+
+<head>
+
+    <title>Calcular número Aleatorio </title>
+
+    <meta charset="UTF-8" />
+
+</head>
+
+<body>
+
+    <p>Generar un numero aleatorio entre el valor mínimo y el valor máximo</p>
+
+    <!-- En esta solución se realiza la funcionalidad a través del atributo action del formulario.
+
+        y el método submit asociado a los formularios y al botón de ese tipo . Para que no se recargue la pagina tenemos que poner
+        
+        action="javascript:void(0)-->
+
+    <form name="miFormulario" action="javascript:void(0)">
+
+        <input type="number" name="valorMinimo" id="valorMin" />
+        <input type="number" name="valorMaximo" id="valorMax" />
+
+
+        <input type="submit" name="calcular" id="submit" value="Calcular" onclick="calculo()" />
+        <input type="button" name="limpiar" id="boton" value="Limpiar" onclick="limpiarFormulario()" />
+
+    </form>
+    <p id="resultado" name="resultado"></p>
+
+</body>
+
+<script>
+
+    function limpiarFormulario() {
+        window.location.reload();
+    }
+
+    //Método que genera un número aleatorio entre un minimo y un maximo 
+    const numeroAletorio = (min, max) => {
+
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+
+    function calculo() {
+
+     //   event.preventDefault();
+
+        let min = miFormulario.valorMinimo.value;
+        console.log(min);
+        let max = miFormulario.valorMaximo.value;
+        console.log(max);
+
+        //Llamar a la función numAleatorio para calcular el numero aleatorio
+        //entre minimo y máximo
+        const numeroA = numeroAletorio(min, max);
+        console.log(numeroA);
+
+        //A continuación creamos el elemento para mostrar el resultado
+        //En este caso no vamos a crear el nodo ya que lo tenemos creado en el 
+        //código html (es un p con name resultado). Y lo que se pretende es resolverlo
+        //sin utilizar los métodos DOM
+
+        /*querySelector:
+        Retorna el primer elemento que cumpla con el criterio dado. Puede ser invocada sobre el document o sobre algún elemento. En caso de usarse sobre un elemento, las búsqueda se limita a los hijos de ese elemento.
+        Si la búsqueda no encuentra nada, retorna null.
+        
+        querySelectorAll
+        Retorna todos los elementos que cumplan con el criterio dado. Al igual que querySelector puede ser invocada sobre el document o sobre algún elemento. Siempre retorna un NodeList
+         */
+
+        let parrafos=document.querySelectorAll('p');
+        parrafos[1].innerHTML = `<b>${numeroA}</b>`;
+        console.log(document.querySelector('p'));
+
+    }
+
+</script>
+
+</html>
