@@ -1,0 +1,314 @@
+/* Reset de estilo para todos los elementos */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* Asegura que el padding y el borde no aumenten el tamaño del elemento */
+}
+
+/* Estilos básicos del cuerpo */
+body {
+  font-family: "Open Sans", sans-serif;
+  /* Fuente de texto principal */
+}
+
+/* Configuración del contenedor principal */
+.contenedor {
+  width: 95vw;
+  /* Ocupa el 95% del ancho de la ventana */
+  height: 100vh;
+  /* Altura total de la ventana */
+
+  display: grid;
+  /* Activa CSS Grid para organización */
+  grid-template-columns: repeat(6, 1fr);
+  /* Crea cinco columnas iguales */
+  grid-template-rows: 10vh 80vh 10vh;
+  /* Establece tres filas con alturas relativas */
+
+  margin: 0 auto;
+  /* Centra el contenedor horizontalmente */
+  border: 1px solid #ccc;
+  /* Borde gris claro */
+}
+
+/* Estilos de la cabecera */
+.header {
+
+  grid-column: 1 / 7;
+  /* La cabecera ocupa las cinco columnas del grid */
+
+  /*  display: grid; /* Activa un subgrid dentro de la cabecera 
+  grid-template-columns: (80% 10%); /* Dos columnas: menu y logo */
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  /* Crea 6 columnas de tamaño igual */
+  align-items: center;
+  /* Alinea el contenido verticalmente al centro */
+  padding: 10px;
+  background-color: #f8f8f8;
+  /* Color de fondo del header */
+}
+
+/* Menú de navegación en la cabecera */
+.header ul {
+  grid-column: 1 / 5;
+
+  /*  display: grid; /* Activa Grid para los enlaces 
+  grid-template-columns: repeat(4, 1fr); /* Cuatro enlaces en columnas iguales */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-basis: auto;
+  gap: 20px;
+  list-style: none;
+  /* Sin viñetas en la lista */
+  align-items: center;
+  /* Centra verticalmente los elementos */
+}
+
+/* Elementos individuales en el menú */
+.header li {
+
+  flex-basis: auto;
+}
+
+/* Estilo de los enlaces del menú */
+.header a {
+  color: #0a0b32;
+  /* Texto blanco */
+  text-decoration: none;
+  /* Sin subrayado */
+  font-size: 1.2rem;
+  /* Tamaño de fuente moderado */
+}
+
+/* Efecto hover en los enlaces */
+.header a:hover {
+  text-decoration: underline;
+  /* Subraya el enlace al pasar el ratón */
+}
+
+/* Contenedor de texto adicional en la cabecera */
+.header .contenedortexto {
+  grid-column: 5 / 7;
+
+  display: flex;
+  /* Usa Flexbox para alinear los elementos */
+  flex-direction: row;
+  /* Coloca los elementos en columna  */
+  justify-content: center;
+  /* Centra verticalmente los elementos  */
+  align-items: space-evenly;
+}
+
+/* Estilos de encabezados en la cabecera */
+.header .contenedortexto h1,
+h2 {
+  flex-grow: 1;
+  /* Permite que crezca según el espacio */
+  align-self: flex-end;
+  /* Alinea el texto hacia el final */
+  flex-basis: auto;
+  flex-shrink: 0;
+  /* Evita que se encoja */
+}
+
+/* Área de contenido principal */
+.contenido {
+  background: rgb(211, 195, 194);
+
+  grid-column: 1 / 7;
+  /* Ocupa todo el ancho */
+
+  display: grid;
+  /* Crea subgrid */
+  grid-template-columns: 30% 70%;
+  /* Dos columnas: barra lateral y contenido principal */
+}
+
+/* Barra lateral */
+.aside {
+  grid-column: 1 / 2;
+  /* Ocupa la primera columna */
+  display: grid;
+  /* Subgrid en la barra lateral */
+  grid-template-rows: 10% 60% 20%;
+  /* Tres secciones */
+}
+
+/* Encabezado en la barra lateral */
+.aside h3 {
+  font-size: 1.3em;
+  /* Tamaño de fuente moderado */
+  color: rgb(125, 125, 179);
+  /* Color gris azulado */
+  text-transform: uppercase;
+  /* Texto en mayúsculas */
+  text-align: center;
+  /* Centrado */
+  align-self: center;
+  /* Centra verticalmente */
+}
+
+/* Texto de la barra lateral */
+.aside p {
+  font-size: 1.1em;
+  color: rgb(39, 39, 73);
+  /* Texto gris oscuro */
+  text-align: justify;
+  /* Justificado */
+  line-height: 105%;
+  /* Espaciado entre líneas */
+  margin-left: 10%;
+  /* Espaciado izquierdo */
+  margin-right: 10%;
+  /* Espaciado derecho */
+
+  display: flex;
+  /* Flexbox para alineación vertical */
+  align-items: center;
+  /* Centra verticalmente */
+}
+
+/* Galería en la barra lateral */
+.aside .galeria {
+  margin: 15%;
+  border: 1px solid #ccc;
+  /* Borde  */
+  box-shadow: 0px 0px 30px #042285;
+  /* Sombra oscura */
+  align-self: center;
+  /* Centra en el contenedor */
+}
+
+/* Contenido principal */
+.main {
+  grid-column: 2 / 3;
+  /* Ocupa la segunda columna */
+  display: grid;
+  /* Subgrid */
+  grid-template-rows: 25% 60%;
+  /* Sección de información y formulario */
+}
+
+/* Encabezado en el contenido principal */
+.main .info h1 {
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  color: rgb(125, 125, 179);
+  text-transform: uppercase;
+}
+
+/* Texto en la sección principal */
+.main .info p {
+  font-size: 1em;
+  color: rgb(39, 39, 73);
+  text-align: justify;
+  line-height: 110%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/* Formulario */
+.main .formulario {
+  border: 1px solid #bb2f2f;
+  /* Borde */
+  margin: 2%;
+  height: auto;
+
+  display: grid;
+  /* Subgrid */
+  grid-template-rows: 15% auto;
+  /* Sección de leggend y ul */
+
+  
+}
+
+/* Encabezado del formulario */
+.formulario legend {
+  font-size: 1.5em;
+  color: rgb(125, 125, 179);
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+/* Configuración interna del formulario */
+.formulario ul {
+  display: grid;
+  grid-template-rows: 10% 10% auto auto;
+  
+}
+
+/* Elementos en el formulario */
+.formulario ul li {
+  list-style: none;
+  margin-left: 5%;
+
+  display: grid;
+  grid-template-columns: 20% auto;
+}
+
+/* Entrada de texto en el formulario */
+.formulario ul li input,textarea{
+  margin: 2% 5% 2% 2%;
+}
+
+/* Etiquetas en el formulario */
+.formulario ul li label {
+  font-size: 1.2rem;
+  margin-top: 5%;
+}
+
+/* Botón en el formulario */
+.formulario ul li button {
+  grid-column:2 /3;
+  background: #333;
+  /* Fondo gris oscuro */
+  color: #f2f2f2;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  border-radius: 2em;
+  width:30%;
+  height: 50%;
+  align-self: center;
+  justify-self: end;
+  
+  /* Bordes redondeados */
+  transition: all 300ms;
+}
+
+/* Pie de página */
+.footer {
+  background: #240b54;
+  grid-column: 1 / 7;
+  /* Ocupa todo el ancho */
+  display: grid;
+  /* Subgrid */
+  grid-template-columns: repeat(4, 1fr);
+  /* Cuatro columnas */
+  font-size: 2rem;
+
+  
+}
+
+.footer .autor{
+  grid-column: 1 / 3;
+  justify-content: center;
+  margin-top: 2%;
+  align-self: flex-start;
+  color:wheat;
+}
+
+.footer .contacto{
+  grid-column: 3 / 5;
+  justify-content: center;
+  align-self: center;
+  color:wheat;
+
+}

@@ -1,0 +1,74 @@
+body{
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.contenedor{
+    display: grid;
+	}
+.item{
+        background-color: #b4b8b9;
+        border: 1px solid #ffffff;
+        padding: 1rem;
+        font-family: arial;
+        color: white;
+        text-align: center;
+ }
+.contenedor1{
+    display: grid;
+    width:1200px;
+    height: 400px;
+    /*Para indicar la altura de todo el navegador
+    height: vh;*/
+    margin: 0 auto;
+    /*Definir filas */
+    /*grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);*/
+
+    /*Comprobar funcionamiento con altura fija de 400 px y cambiando numero de filas */
+    grid-template-rows: 50% 10% 40%;
+    grid-template-columns: repeat(4, 1fr);
+    /*Comprobar funcionamiento con altura fija de 400 px y cambiando numero de filas */
+    /*grid-template-rows: 50% 10% 40%;
+    grid-template-columns: repeat(2, 1fr);*/
+
+    grid-gap: 10px; /*Dar margenes entre elementos grid*/
+    border: 3px solid orangered;
+    padding: 10px;
+   
+}
+.contenedor1 .caja{
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+    padding:20px;
+    border:4px solid #222;
+    background: gray;
+}
+.contenedor1 .roja{
+    background: red;
+    /*Expandir la primera caja */
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.contenedor1 .verde{
+    background:green;
+    /*Expandir filas */
+    grid-row: 2 / 4;
+}
+.contenedor1 .azul{
+    background:blue;
+}
+.contenedor1 .rosa{
+    background:rgb(240, 7, 85);
+    grid-column:2 / 4;
+}
+.contenedor1 .naranja{
+    background:orange;
+}
+.contenedor1 .violeta{
+    background:violet;
+     /*Expandir la ultima caja  de forma abreviada*/
+    grid-column: 1 / 3 ;
+    
+}

@@ -1,0 +1,46 @@
+                                    body {
+                                        --rojo: red;
+                                        font-family: Arial, Helvetica, sans-serif;
+                                        text-align: center;
+                                    }
+                                    
+                                    .contenedor {
+                                        border: 3px solid black;
+                                        padding: 5px;
+                                        display: flex;
+                                        flex-wrap: wrap;
+                                        justify-content: space-around;
+                                        /*Alineación vertical*/
+                                        height: 620px;
+                                        align-items: baseline;
+                                    }
+                                    
+                                    .caja {
+                                        font-size: 20px;
+                                        font-size: 20px;
+                                        font-weight: bold;
+                                        text-align: center;
+                                        color: white;
+                                        padding: 20px;
+                                        border: 4px solid rgb(29, 28, 28);
+                                        margin: 10px;
+                                        background-color: grey;
+                                    }
+                                    
+                                    .roja {
+                                        background-color: var(--rojo);
+                                        /*Alineacion vertical*/
+                                        align-self: center;
+                                    }
+                                    
+                                    .verde {
+                                        background: green;
+                                    }
+                                    
+                                    .azul {
+                                        background: blue;
+                                    }
+                                    
+                                    .naranja {
+                                        background: orange;
+                                    }

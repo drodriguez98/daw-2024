@@ -1,0 +1,58 @@
+body {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.contenedor1 {
+  width: 80%;
+  margin: 0px auto;
+  min-height: 400px;
+  height: 600px;
+  /* Definir el grid contenedor*/
+  display: grid;
+  /*Definir las columnas*/
+  
+  grid-template-columns: repeat(3, 1fr);
+  /*Definir filas*/
+  grid-template-rows: repeat(2,1fr) 3fr 1fr 1fr;
+  /*Espacio entre elementos grid*/
+  grid-gap: 10px;
+  padding: 10px;
+
+  border: 3px solid orangered;
+}
+.contenedor1 .caja {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 20px;
+  border: 4px solid #222;
+  background: gray;
+}
+.contenedor1 .roja {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  background: red;
+}
+.contenedor1 .verde {
+  background: green;
+  grid-row-start: 2;
+  grid-row-end:6;
+}
+.contenedor1 .azul {
+  background: blue;
+  grid-column: 2 / 4;
+}
+.contenedor1 .rosa {
+  background: palevioletred;
+  grid-column: 2 / 3;
+  grid-row:3 / 5;
+}
+.contenedor1 .naranja {
+  background: orange;
+  grid-row:3 / 5;
+}
+.contenedor1 .violeta {
+  background:rgb(141, 8, 141);
+ grid-column: 2 / 4;
+}

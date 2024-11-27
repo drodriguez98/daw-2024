@@ -1,0 +1,57 @@
+body{
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.contenedor{
+    display: grid;
+	}
+.item{
+        background-color: #b4b8b9;
+        border: 1px solid #ffffff;
+        padding: 1rem;
+        font-family: arial;
+        color: white;
+        text-align: center;
+ }
+.contenedor1{
+    display: grid;
+    width:1200px;
+    margin: 0 auto;
+    /*grid-template-columns: 45% 45%; /*Definir dos columnas*/
+
+    /*grid-template-columns: 25% 25% 25%; /*Definir tres columnas*/
+    /*grid-template-columns: 25% 25% 25% 25%; /*Definir cuatro columnas*/
+    /*Definir columnas con valores repetidos */
+     grid-template-columns: repeat(4,calc(25% - 10px));
+
+     /*Definir columnas con valores repetidos pero distintos */
+    /*grid-template-columns: repeat(2,calc(25% - 10px)) 15% 30%;
+
+     /*Unidad de medida fraccion*/
+    /*grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px; /*Dar margenes entre elementos grid*/
+    border: 3px solid orangered;
+    /*padding: 10px;*/
+   
+}
+.contenedor1 .caja{
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+    padding:20px;
+    border:4px solid #222;
+    background: gray;
+}
+.contenedor1 .roja{
+    background: red;
+}
+.contenedor1 .verde{
+    background:green;
+}
+.contenedor1 .azul{
+    background:blue;
+}
+.contenedor1 .rosa{
+    background:palevioletred;
+}
