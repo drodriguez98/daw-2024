@@ -17,8 +17,8 @@ public class Vehiculo {
     // Atributos de la clase Vehiculo.
     private String marca; // Marca del vehículo.
     private String matricula; // Matrícula del vehículo.
-    private int num_kms; // Número de kilómetros recorridos por el vehículo.
-    private LocalDate fecha_mat; // Fecha de matriculación del vehículo.
+    private int numKilometros; // Número de kilómetros recorridos por el vehículo.
+    private LocalDate fecha; // Fecha de matriculación del vehículo.
     private String descripcion; // Descripción del vehículo.
     private int precio; // Precio del vehículo.
     private String propietario; // Nombre del propietario del vehículo.
@@ -30,18 +30,18 @@ public class Vehiculo {
     * 
     * @param marca Marca del vehículo.
     * @param matricula Matrícula del vehículo.
-    * @param num_kms Kilómetros recorridos por el vehículo.
-    * @param fecha_mat Fecha de matriculación del vehículo.
+    * @param numKilometros Kilómetros recorridos por el vehículo.
+    * @param fecha Fecha de matriculación del vehículo.
     * @param descripcion Descripción del vehículo.
     * @param precio Precio del vehículo.
     * @param propietario Nombre del propietario del vehículo.
     * @param dniPropietario DNI del propietario del vehículo.
     */
-    public Vehiculo(String marca, String matricula, int num_kms, LocalDate fecha_mat, String descripcion, int precio, String propietario, String dniPropietario) {
+    public Vehiculo(String marca, String matricula, int numKilometros, LocalDate fecha, String descripcion, int precio, String propietario, String dniPropietario) {
         this.marca = marca;
         this.matricula = matricula;
-        this.num_kms = num_kms;
-        this.fecha_mat = fecha_mat;
+        this.numKilometros = numKilometros;
+        this.fecha = fecha;
         this.descripcion = descripcion;
         this.precio = precio;
         this.propietario = propietario;
@@ -56,11 +56,11 @@ public class Vehiculo {
     public String getMatricula() { return matricula; } // Obtiene la matrícula del vehículo.
     public void setMatricula(String matricula) { this.matricula = matricula; } // Establece la matrícula del vehículo.
 
-    public int getNumKilometros() { return num_kms; } // Obtiene el número de kilómetros recorridos.
-    public void setNumKilometros(int num_kms) { this.num_kms = num_kms; } // Establece el número de kilómetros recorridos.
+    public int getNumKilometros() { return numKilometros; } // Obtiene el número de kilómetros recorridos.
+    public void setNumKilometros(int numKilometros) { this.numKilometros = numKilometros; } // Establece el número de kilómetros recorridos.
 
-    public LocalDate getFecha() { return fecha_mat; } // Obtiene la fecha de matriculación.
-    public void setFecha(LocalDate fecha_mat) { this.fecha_mat = fecha_mat; } // Establece la fecha de matriculación.
+    public LocalDate getFecha() { return fecha; } // Obtiene la fecha de matriculación.
+    public void setFecha(LocalDate fecha) { this.fecha = fecha; } // Establece la fecha de matriculación.
 
     public String getDescripcion() { return descripcion; } // Obtiene la descripción del vehículo.
     public void setDescripcion(String descripcion) { this.descripcion = descripcion; } // Establece la descripción del vehículo.
@@ -81,15 +81,15 @@ public class Vehiculo {
     */
     public int calcularAnios() {
         LocalDate hoy = LocalDate.now(); // Obtiene la fecha actual.
-        return  (Period.between(this.fecha_mat, hoy).getYears()); // Calcula y retorna la diferencia en años entre la fecha de matriculación y la fecha actual.
+        return  (Period.between(this.fecha, hoy).getYears()); // Calcula y retorna la diferencia en años entre la fecha de matriculación y la fecha actual.
     }
 
     /**
      * Actualiza el número de kilómetros del vehículo.
     * 
-    * @param nuevos_kms El nuevo valor de kilómetros recorridos.
+    * @param nuevosKilometros El nuevo valor de kilómetros recorridos.
     */
-    public void actualizarKilometros(int nuevos_kms) {
-        this.num_kms = nuevos_kms; // Establece el nuevo número de kilómetros.
+    public void actualizarKilometros(int nuevosKilometros) {
+        this.numKilometros = nuevosKilometros; // Establece el nuevo número de kilómetros.
     }
 }

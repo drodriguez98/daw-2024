@@ -67,9 +67,9 @@ public class DNI {
 
         boolean valido = true;  // Suponemos que el NIF es válido mientras no encontremos un error.
 
-        char letra_calculada;  // Letra calculada a partir del número del DNI.
-        char letra_leida;      // Letra extraída del NIF proporcionado.
-        int dni_leido;         // Número del NIF extraído de la cadena.
+        char letraCalculada;  // Letra calculada a partir del número del DNI.
+        char letraLeida;      // Letra extraída del NIF proporcionado.
+        int dniLeido;         // Número del NIF extraído de la cadena.
 
         // Comprobamos que el NIF no sea nulo.
         if (nif == null) {
@@ -79,14 +79,14 @@ public class DNI {
         } else {
 
             // Extraemos la letra y el número del NIF.
-            letra_leida = DNI.extraerLetraNIF(nif);
-            dni_leido = DNI.extraerNumeroNIF(nif);
+            letraLeida = DNI.extraerLetraNIF(nif);
+            dniLeido = DNI.extraerNumeroNIF(nif);
 
             // Calculamos la letra correspondiente al número del NIF.
-            letra_calculada = DNI.calcularLetraNIF(dni_leido);
+            letraCalculada = DNI.calcularLetraNIF(dniLeido);
 
             // Comparamos la letra leída con la letra calculada. Si no coinciden, lanzamos una excepción.
-            if (letra_leida != letra_calculada) {
+            if (letraLeida != letraCalculada) {
                 throw new Exception("DNI inválido: ");
             }
         }

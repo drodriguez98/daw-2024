@@ -15,12 +15,12 @@ public class Validar {
     /**
      * Compara si la fecha de matriculación es anterior a la fecha actual.
     * 
-    * @param fecha_mat La fecha de matriculación a comparar.
+    * @param fecha La fecha de matriculación a comparar.
     * @return `true` si la fecha de matriculación es anterior a la fecha actual, de lo contrario `false`.
     */
-    public static boolean comparaFecha(LocalDate fecha_mat) {
+    public static boolean comparaFecha(LocalDate fecha) {
         // Compara si la fecha de matriculación es anterior a la fecha actual
-        return fecha_mat.isBefore(LocalDate.now());
+        return fecha.isBefore(LocalDate.now());
     }
 
     /**
