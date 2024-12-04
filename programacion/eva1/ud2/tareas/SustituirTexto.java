@@ -32,26 +32,26 @@ public class SustituirTexto {
     // Método para substituir o segundo texto polo terceiro na primeira cadea
     public static String substituirTexto(String cadea1, String cadea2, String cadea3) {
         StringBuilder resultado = new StringBuilder();
-        int posicaoActual = 0; // Posición actual na cadea1
+        int posicionActual = 0; // Posición actual na cadea1
 
-        while (posicaoActual < cadea1.length()) {
+        while (posicionActual < cadea1.length()) {
             // Buscar a posición do próximo cadea2 na cadea1
-            int indice = cadea1.indexOf(cadea2, posicaoActual);
+            int indice = cadea1.indexOf(cadea2, posicionActual);
 
             if (indice == -1) {
                 // Se non hai máis ocorrencias, engadir o resto da cadea
-                resultado.append(cadea1.substring(posicaoActual));
+                resultado.append(cadea1.substring(posicionActual));
                 break;
             }
 
             // Engadir a parte da cadea antes da ocorrencia de cadea2
-            resultado.append(cadea1.substring(posicaoActual, indice));
+            resultado.append(cadea1.substring(posicionActual, indice));
 
             // Engadir cadea3 no lugar de cadea2
             resultado.append(cadea3);
 
             // Actualizar a posición actual para continuar a búsqueda
-            posicaoActual = indice + cadea2.length();
+            posicionActual = indice + cadea2.length();
         }
 
         return resultado.toString();
