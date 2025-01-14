@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horror Stories UI</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            display: flex;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        .story-selector {
+            flex: 1;
+            background-color: #2e2e2e;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .story-selector h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .story-selector ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .story-selector li {
+            margin-bottom: 15px;
+        }
+
+        .story-selector a {
+            text-decoration: none;
+            color: #ff5757;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .story-selector a:hover {
+            color: #ffa1a1;
+        }
+
+        .image-display {
+            flex: 2;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .image-display::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .image-display img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .image-display h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            text-shadow: 0 0 10px #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="story-selector">
+            <h1>Select a Story</h1>
+            <ul>
+                <li><a href="#" onclick="updateStory('Haunted Forest', 'img/forest.jpg')">Haunted Forest</a></li>
+                <li><a href="#" onclick="updateStory('Abandoned House', 'img/house.jpg')">Abandoned House</a></li>
+                <li><a href="#" onclick="updateStory('Ghostly Lake', 'img/lake.jpg')">Ghostly Lake</a></li>
+                <li><a href="#" onclick="updateStory('Cursed Cemetery', 'img/cemetery.jpg')">Cursed Cemetery</a></li>
+            </ul>
+        </div>
+        <div class="image-display" id="image-display">
+            <h2 id="story-title">Choose a Story</h2>
+            <img id="story-image" src="" alt="Story Image">
+        </div>
+    </div>
+    <script>
+        function updateStory(title, image) {
+            document.getElementById('story-title').textContent = title;
+            document.getElementById('story-image').src = image;
+        }
+    </script>
+</body>
+</html>
