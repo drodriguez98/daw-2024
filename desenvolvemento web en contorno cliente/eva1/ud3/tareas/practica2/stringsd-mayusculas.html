@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio strings d - Convertir mayúsculas</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <p>Convertir a mayúsculas la primera letra de cada palabra</p>
+    <form name="miFormulario">
+        <input type="text" name="texto" id="entrada" placeholder="Introduce aquí la cadena"/>
+        <input type="button" name="enviar" id="botonAnadir" value="Enviar texto"/>        
+    </form>
+    <p id="parrafoSolucion"></p>
+</body>
+<script>
+    function convertirMayusculas() {
+        let cadena = document.miFormulario.entrada.value;
+        const parrafo = document.getElementById("parrafoSolucion");
+        
+        let matriz = cadena.split(" ");
+        //Para ello vamos a separar la cadena por palabras. Devuelve el array de palabras
+        console.log(matriz);
+        for (let i=0;i<matriz.length;i++) {
+            //Coge el primer caracter de cada palabra, lo pone en mayuscula con el método toUpperCase y le concatema el resto de la palabra de la
+            //posicion 1 al final
+            console.log("Cadena sin la primera posicion: " +matriz[i].substr(1));
+            matriz[i] = matriz[i].charAt(0).toUpperCase() + matriz[i].substr(1);
+        }
+
+        let cadenaResultado = matriz.join(" ");
+
+        parrafo.innerHTML = cadenaResultado;
+    }
+
+    window.onload = function () {
+        document.miFormulario.enviar.addEventListener("click", convertirMayusculas);
+    }
+</script>
+</html>
+

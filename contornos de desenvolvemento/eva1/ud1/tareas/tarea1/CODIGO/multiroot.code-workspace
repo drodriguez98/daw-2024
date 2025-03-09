@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "HTML-JS"
+		},
+		{
+			"path": "Java"
+		},
+		{
+			"path": "PHP"
+		}
+	],
+    "settings": {
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 500
+    }
+}

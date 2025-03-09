@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejercicio strings a - Romper cadena</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <h1>Romper cadena en dos mitades</h1>
+    <form name="miFormulario">
+        <input type="text" name="texto" id="entrada" placeholder="Introduce aquí la cadena" />
+        <input type="button" name="enviar" id="botonAnadir" value="Enviar texto" />
+    </form>
+    <p id="primeraMitad"></p>
+    <p id="segundaMitad"></p>
+</body>
+<script>
+    function romper() {
+        let cadena = document.miFormulario.entrada.value;
+        //Acedemos a la etiqueta p identificada con el id primeraMitad
+        const primera = document.getElementById("primeraMitad");
+        //Acedemos a la etiqueta p identificada con el id segundaMitad
+        const segunda = document.getElementById("segundaMitad");
+        //Obtenermos la longitud de la primera mitad sin decimales
+        const longitudPrimera = Math.ceil(cadena.length / 2);
+
+       /*  Javascript también posee una serie de métodos mediante los cuales podemos crear substrings formados por un fragmento del original
+       substr(start,size)  - Devuelve el substring desde la posición start hasta start+size */
+        let primeraMitad = cadena.substr(0, longitudPrimera);
+        let segundaMitad = cadena.substr(longitudPrimera); //Al no indicar el segundo argumento, la cadena va hasta el final
+
+        //Añade el texto a mostrar en el parrafo. Lo hacemos de dos maneras distintas
+        primera.innerHTML = `<b>La primera mitad es ${ primeraMitad}</b> ` ;
+        segunda.innerHTML = "La segunda mitad es " + segundaMitad;
+    }
+
+    /* El ciclo de vida de una página HTML tiene tres eventos importantes:
+    
+    DOMContentLoaded : el navegador HTML está completamente cargado y el árbol DOM está construido, pero es posible que los recursos externos como <img> y hojas de estilo aún no se hayan cargado.
+    load : no solo se cargó el HTML, sino también todos los recursos externos: imágenes, estilos, etc.
+    beforeunload/unload : el usuario sale de la pagina.
+    
+    Cada evento puede ser útil:
+    
+    Evento DOMContentLoaded : DOM está listo, por lo que el controlador puede buscar nodos DOM, inicializar la interfaz.
+    Evento load : se cargan recursos externos, por lo que se aplican estilos, se conocen tamaños de imagen, etc.
+    Evento beforeunload : el usuario se va: podemos comprobar si el usuario guardó los cambios y preguntarle si realmente quiere irse.
+    Evento unload : el usuario casi se fue, pero aún podemos iniciar algunas operaciones, como enviar estadísticas. */
+
+    window.onload = function () {
+        /*addEventListener permite añadir una escucha del evento indicado (primer parámetro), y en el caso de que ocurra, se ejecutará la función asociada indicada (segundo parámetro) */
+        /* Con esta instrucción ponemos el botón enviar a la escucha del evento click y al hacer click se ejecuta la función romper. OJO. Al llamar a la función romper con esta sintaxis no 
+        se ponen () 
+        Tenemos un tercer parámetro que es opcional y que trataremos en el tema de eventos*/
+        
+        document.miFormulario.enviar.addEventListener("click", romper);
+    }
+</script>
+
+</html>

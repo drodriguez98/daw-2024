@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tarea DWEC03</title>
+    </head>
+
+    <body>
+
+        <!-- Botones -->
+
+        <button id="botonAbrirVentana">Abrir Ventana Nueva</button>
+        <button id="botonSolicitarDatos">Solicitar Datos</button>
+
+        <!-- Contenedor para mostrar los resultados -->
+
+        <div id="resultados"></div>
+
+        <script>
+
+            // Función para abrir una nueva ventana
+
+            function abrirVentanaNueva() {
+
+                const nuevaVentana = window.open("", "_blank", "width=800,height=600,resizable=no");
+
+                // Escribir en la nueva ventana
+
+                nuevaVentana.document.write("<h3>Ejemplo de Ventana Nueva</h3>");
+                nuevaVentana.document.write(`URL Completa: ${window.location.href}<br>`);
+                nuevaVentana.document.write(`Protocolo utilizado: ${window.location.protocol}<br>`);
+                nuevaVentana.document.write(`Nombre en código del navegador: ${navigator.appCodeName}<br>`);
+
+                // Detectar si Java está disponible
+
+                if (navigator.javaEnabled()) {
+                    nuevaVentana.document.write("Java SI disponible en esta ventana<br>");
+                } else { nuevaVentana.document.write("Java NO disponible en esta ventana<br>"); }
+
+                // Abrir un iframe con www.google.es. 
+                // Debido a las restricciones impuestas por Google, no es posible mostrar directamente el contenido de www.google.es en un iframe. Por eso utilizo un dominio alternativo.
+
+                nuevaVentana.document.write('<iframe src="https://example.com" width="800" height="600"></iframe>');
+
+            }
+
+            // Función para solicitar y procesar los datos
+
+            function solicitarDatos() {
+
+                const resultadosDiv = document.getElementById("resultados");
+
+                // Solicitar datos
+
+                const nombreCompleto = prompt("Introduzca su nombre y apellidos:");
+                const diaNacimiento = prompt("Introduzca DIA de nacimiento:");
+                const mesNacimiento = prompt("Introduzca MES de nacimiento:");
+                const anioNacimiento = prompt("Introduzca AÑO de nacimiento:");
+
+                // Procesar datos
+
+                const edad = new Date().getFullYear() - parseInt(anioNacimiento, 10);
+                const nombreSinEspacios = nombreCompleto.trim();
+                const primeraA = nombreSinEspacios.toLowerCase().indexOf('a') + 1;
+                const ultimaA = nombreSinEspacios.toLowerCase().lastIndexOf('a') + 1;
+                const nombreMenosTres = nombreSinEspacios.slice(3);
+                const nombreMayusculas = nombreSinEspacios.toUpperCase();
+                const diasSemana = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+                const fechaNacimiento = new Date(`${anioNacimiento}-${mesNacimiento}-${diaNacimiento}`);
+                const diaSemana = diasSemana[fechaNacimiento.getDay()];
+                const coseno180 = Math.cos(180 * (Math.PI / 180)).toFixed(10);
+                const numeroMayor = Math.max(34, 67, 23, 75, 35, 19);
+                const numeroAzar = (Math.random() * 100);
+
+                // Mostrar resultados
+
+                resultadosDiv.innerHTML = 
+
+                `
+                    <h1>TAREA DWEC03</h1><hr>
+                    <p>Buenos días ${nombreCompleto}.</p>
+                    <p>Tu nombre tiene ${nombreCompleto.length} caracteres, incluidos espacios.</p>
+                    <p>La primera letra A de tu nombre está en la posición: ${primeraA > 0 ? primeraA : "No encontrada"}.</p>
+                    <p>La última letra A de tu nombre está en la posición: ${ultimaA > 0 ? ultimaA : "No encontrada"}.</p>
+                    <p>Tu nombre menos las 3 primeras letras es: ${nombreMenosTres}.</p>
+                    <p>Tu nombre todo en mayúsculas es: ${nombreMayusculas}.</p>
+                    <p>Tu edad es: ${edad} años.</p>
+                    <p>Naciste un feliz ${diaSemana} del año ${anioNacimiento}.</p>
+                    <p>El coseno de 180 es: ${coseno180}.</p>
+                    <p>El número mayor de (34, 67, 23, 75, 35, 19) es: ${numeroMayor}.</p>
+                    <p>Ejemplo de número al azar: ${numeroAzar}.</p>
+                `;
+
+            }
+
+            // Vincular el botón botonAbrirVentana a la acción AbrirVentanaNueva
+
+            document.getElementById("botonAbrirVentana").addEventListener("click", function () { abrirVentanaNueva(); });
+
+            // Vincular el botón botonSolicitarDatos a la acción solicitarDatos
+
+            document.getElementById("botonSolicitarDatos").addEventListener("click", function () { solicitarDatos(); });
+
+        </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+    
+</head>
+<body>
+
+    <!-- DANDO DINAMISMO A ELEMENTOS HTML DESDE JS-->
+
+    <div id="resultados1"></div> 
+    <div id="resultados2"></div> 
+    <div id="resultados3"></div>
+
+    <!-- EVENTOS Y FUNCIONES -->
+
+    <!--Opción 1 sin onclick-->
+
+    <form action="#" method="post">
+        <label for="numero">Introduce un número:</label>
+        <input type="number" name="numero" id="numero" placeholder="Introduce un número"/>
+        <button type="button" name="submit" id="submitButton">Enviar</button>
+    </form> 
+
+    <!--Opción 2 con onclick-->
+
+    <form action="#" method="post">
+        <label for="numero">Introduce un número:</label>
+        <input type="number" name="numero" id="numero" placeholder="Introduce un número"/>
+        <button type="button" name="submit" id="submitButton" onclick="esPar()">Enviar</button>
+    </form>
+
+    <div id="resultados4"></div>
+
+    <!-- VENTANAS -->
+
+    <div id="cerrarVentana"></div>
+
+    <script type="text/javascript" src="prueba.js"></script>
+    
+</body>
+</html>

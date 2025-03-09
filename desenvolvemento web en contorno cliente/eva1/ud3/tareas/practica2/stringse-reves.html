@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio strings e - Dar la vuelta a una cadena</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <h1>Dar la vuelta a una cadena</h1>
+    <form name="miFormulario">
+        <input type="text" name="texto" id="entrada" placeholder="Introduce aquí la cadena"/>
+        <input type="button" name="enviar" id="botonAnadir" value="Enviar texto"/>        
+    </form>
+    <p id="solucion"></p>
+</body>
+<script>
+    function alReves(cadena) {
+        let cadenaReves = "";
+
+        //Sintaxis que utilizamos recorriendo la cadena original de mayor posición a menor y concatenando en cadenaReves
+        /*for (let i = cadena.length - 1; i >= 0; i--) {
+         cadenaReves += cadena[i];
+         }
+         return cadenaReves;*/
+        return cadena.split("").reverse().join(""); //Convierto a array, le doy la vuelta y vuelvo a convertir a cadena
+
+    }
+
+    function daLaVuelta() {
+        let cadena = document.miFormulario.texto.value;
+        //Muestro la solución en la etiqueta párrafo con id solución
+        document.getElementById("solucion").innerHTML = alReves(cadena);
+    }
+
+    window.onload = function () {
+        document.miFormulario.enviar.addEventListener("click", daLaVuelta);
+    }
+</script>
+</html>
+

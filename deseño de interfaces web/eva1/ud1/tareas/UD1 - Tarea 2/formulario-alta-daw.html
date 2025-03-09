@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Alta Alumno DAW</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        legend {
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        input, select {
+            width: 90%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Alta de Alumnos - Ciclo DAW</h1>
+    </header>
+    <main>
+        <form action="/submit" method="post">
+            <!-- Datos personales -->
+            <fieldset>
+                <legend>Datos Personales</legend>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+
+                <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+                <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
+
+                <label for="dni">DNI</label>
+                <input type="text" id="dni" name="dni" required>
+            </fieldset>
+
+            <!-- Contacto -->
+            <fieldset>
+                <legend>Contacto</legend>
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="direccion">Dirección</label>
+                <input type="text" id="direccion" name="direccion" required>
+
+                <label for="provincia">Provincia</label>
+                <input type="text" id="provincia" name="provincia" required>
+
+                <label for="codigo-postal">Código Postal</label>
+                <input type="text" id="codigo-postal" name="codigo-postal" required>
+            </fieldset>
+
+            <!-- Información académica -->
+            <fieldset>
+                <legend>Información Académica</legend>
+                <label for="titulacion">Titulación de Acceso</label>
+                <input type="text" id="titulacion" name="titulacion" required>
+
+                <label for="nota-acceso">Nota de Acceso</label>
+                <input type="number" id="nota-acceso" name="nota-acceso" step="0.01" required>
+
+                <label for="beca">¿Beca? (S/N)</label>
+                <select id="beca" name="beca" required>
+                    <option value="S">Sí</option>
+                    <option value="N">No</option>
+                </select>
+            </fieldset>
+
+            <!-- Situación residencial -->
+            <fieldset>
+                <legend>Situación Residencial</legend>
+                <label for="alquiler">¿Vive en Alquiler o Residencia?</label>
+                <select id="alquiler" name="alquiler">
+                    <option value="alquiler">Alquiler</option>
+                    <option value="residencia">Residencia</option>
+                    <option value="ninguno">Ninguno</option>
+                </select>
+
+                <label for="direccion-alquiler">Dirección del Alquiler</label>
+                <input type="text" id="direccion-alquiler" name="direccion-alquiler">
+
+                <label for="precio-alquiler">Precio del Alquiler (€)</label>
+                <input type="number" id="precio-alquiler" name="precio-alquiler" step="0.01">
+            </fieldset>
+
+            <!-- Información adicional -->
+            <fieldset>
+                <legend>Información Adicional</legend>
+                <label for="nombre-padre">Nombre del Padre</label>
+                <input type="text" id="nombre-padre" name="nombre-padre">
+
+                <label for="nombre-madre">Nombre de la Madre</label>
+                <input type="text" id="nombre-madre" name="nombre-madre">
+
+                <label for="asignaturas">Asignaturas</label>
+                <input type="text" id="asignaturas" name="asignaturas">
+            </fieldset>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 Centro de Formación DAW. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

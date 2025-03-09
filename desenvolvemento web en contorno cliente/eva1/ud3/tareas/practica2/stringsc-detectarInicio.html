@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejercicio strings c - Detectar inicio</title>
+    <meta charset="UTF-8" />
+
+    <style type="text/css">
+        .resaltado {
+            color: red;
+            background-color: beige;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Detectar inicio</h1>
+    <form name="miFormulario">
+        <input type="text" name="texto" id="entrada" placeholder="Introduce aquí la cadena" />
+        <input type="button" name="enviar" id="botonAnadir" value="Enviar texto" />
+    </form>
+    <ul id="listaSolucion">
+
+    </ul>
+</body>
+<script>
+    function fechaHoy() {
+
+        let fecha = new Date(); //Guardo en la variable fecha la fecha actual
+        let parrafo1 = document.getElementById("parrafoFecha");
+
+        //Dos formas distintas de añadir un 0 a la izquierda si es necesario
+        /*  Para ello utilizamos la sintaxis del operador ternario
+        La Sintaxis es:
+        let result = condition ? value1 : value2;
+        Se evalúa condition: si es verdadera entonces devuelve value1, de lo contrario value2. */
+
+        console.log(fecha);
+        console.log(fecha.getDate());
+        
+
+        let dia = (fecha.getDate() < 10) ? ("0" + fecha.getDate()) : fecha.getDate();
+
+        let mes = ("0" + (fecha.getMonth() + 1)).slice(-2);
+        //OJO, la función getMonth() devuelve los meses empezando en 0 (0 para enero)
+        let cadenaFecha = dia + "/" + mes + "/" + fecha.getFullYear();
+        return cadenaFecha;
+    }
+
+    function detectarInicio() {
+       /*  let cadena = document.miFormulario.entrada.value; */
+
+        let cadena = document.getElementById("entrada").value
+        //Obtener el texto introducido por el usuario. La línea que aparece comentada es otra forma de acceder al contenido del cuadro de texto
+
+        const lista = document.getElementById("listaSolucion");
+        //Creamos un elemento de tipo nodo en este caso es un li
+        const elementoLista = document.createElement("li");
+        //Añadir el texto al elemento de tipo nodo
+        const textoElemento = document.createTextNode(cadena);
+        //Añadir el nodo creado a
+        elementoLista.appendChild(textoElemento);
+        /* Javascript tiene a nuestra disposición una propiedad .className en todos los elementos HTML. 
+        Con dicha propiedad podemos acceder al valor del atributo HTML class como un String, tanto para obtenerlo como para cambiarlo o reemplazarlo.
+        En el código que tenemos a continuación lo que hacemos es asignar los estilos definidos en la clase resaltado.
+         */
+
+        if (fechaHoy() == cadena.substr(0, 10)) {
+            elementoLista.className = "resaltado";
+        }
+
+        //Añade el texto a la lista
+        lista.appendChild(elementoLista);
+
+        document.miFormulario.entrada.value = "";
+    }
+
+    window.onload = function () {
+        document.miFormulario.enviar.addEventListener("click", detectarInicio);
+    }
+</script>
+
+</html>

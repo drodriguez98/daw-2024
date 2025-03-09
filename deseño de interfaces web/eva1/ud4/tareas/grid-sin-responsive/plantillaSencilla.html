@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Plantilla Basica</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+    <div class="contenedor">
+        <!--Cabecera-->
+        <header class="header">
+            <ul>
+                <li><a href="#">AcercaDe</a></li>
+                <li><a href="#">Trabajos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+
+            <div class="contenedortexto">
+                <h1 class="nombre">Bea Rodriguez</h1>
+                <h2 class="profesion">Docente</h2>
+            </div>
+        </header>
+        <!--Inicio contenido-->
+        <div class="contenido">
+            <aside class="aside">
+                <h3>Sidebar</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <div class="galeria">
+                    <img src="imagenes/libro.png" alt="Descripcion de la Imagen #1" width="100%" height="100" />
+                </div>
+            </aside>
+            <section class="main">
+                <article class="info">
+                    <h1>Titulo del Articulo</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </article>
+                <!--Diseño de un formulario dentro de la misma seccion*-->
+
+                <form class="formulario" action="">
+                    <legend>Formulario de contacto</legend>
+                    <ul>
+                        <li>
+                            <label for="nombre">Nombre</label>
+                            <input type="text" placeholder="Nombre" />
+                        </li>
+                        <li>
+                            <label for="correo">Email</label>
+                            <input type="email" id="email" placeholder="Correo" />
+                        </li>
+                        <li>
+                            <label for="mensaje">Mensaje</label>
+                            <textarea rows="5" name="mensaje" id="mensaje" placeholder="Mensaje"></textarea>
+                        </li>
+
+                        <li>
+                            <button type="submit">Enviar</button>
+                        </li>
+                    </ul>
+                </form>
+            </section>
+        </div>
+        <!--Fin contenido-->
+        <!--Pie-->
+        <footer class="footer">
+            <div class="autor">
+                <p>Creado por</p>
+            </div>
+            <div class="contacto">
+                <p>Contacto</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

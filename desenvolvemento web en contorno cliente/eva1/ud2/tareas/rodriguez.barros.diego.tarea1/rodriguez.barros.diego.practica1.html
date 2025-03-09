@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirámide de Números</title>
+</head>
+<body>
+    <script>
+        let numeroUsuario;
+
+        // Bucle para solicitar un número entre 1 y 100
+        while (true) {
+            numeroUsuario = prompt("Introduce un número entre 1 y 100:");
+
+            // Convertir el input a número
+            numeroUsuario = parseInt(numeroUsuario);
+
+            // Validar que sea un número y esté en el rango
+            if (!isNaN(numeroUsuario) && numeroUsuario >= 1 && numeroUsuario <= 100) {
+                break; // Salir del bucle si es válido
+            }
+            alert("Por favor, introduce un número válido entre 1 y 100.");
+        }
+
+        // Crear la pirámide
+        for (let filaActual = 1; filaActual <= numeroUsuario; filaActual++) {
+            let lineaPiramide = ""; // Línea de la pirámide
+
+            // Añadir números
+            for (let numeroEnFila = 1; numeroEnFila <= filaActual; numeroEnFila++) {
+                lineaPiramide += numeroEnFila + " "; // Añadir el número de la fila
+            }
+
+            // Mostrar la línea en la página
+            document.write(lineaPiramide + "<br>");
+        }
+    </script>
+</body>
+</html>

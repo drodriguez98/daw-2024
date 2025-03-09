@@ -1,0 +1,62 @@
+form#pago {
+    font-family: Verdana, Arial, sans-serif;
+    margin:auto;
+    background: SlateGray;
+    color: white;
+    font-size: 14px;
+    padding: 30px;
+    width: 450px;
+    border:solid 10px LightSteelBlue;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+form#pago input{
+    font-size:14px;
+    background: white;
+    border:solid 1px LightSteelBlue;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    float: right;
+    margin-right: 15px;
+    width: 200px;
+}
+form#pago ol li {
+    line-height: 25px;
+    list-style: none;
+}
+form#pago [required]{
+    border:solid 1px red;
+}
+
+input:required {
+    outline: 1px solid red;
+}
+
+button{
+    text-align:center;
+}
+
+fieldset{
+    text-align: center;
+}
+
+#parrafoAyuda {
+    
+    font-family: Verdana, Arial, sans-serif;
+    margin:auto;
+    background: SlateGray;
+    color: white;
+    font-size: 14px;
+    padding: 30px;
+    width: 450px;
+    float:right;
+    border:solid 10px LightSteelBlue;
+    border-radius: 5px;
+   
+    visibility: hidden;    
+    
+}
+
+/* Dar estilos a la nueva ventana */

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejercicio strings b - Insertar guiones</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <h1>Intercalar guiones</h1>
+    <form name="miFormulario">
+        <input type="text" name="texto" id="entrada" placeholder="Introduce aquí la cadena" />
+        <input type="button" name="enviar" id="botonAnadir" value="Enviar texto" />
+    </form>
+    <p id="parrafoSolucion"></p>
+</body>
+<script>
+    function intercalar() {
+        let cadena = document.miFormulario.entrada.value;
+        const parrafo = document.getElementById("parrafoSolucion");
+
+        let cadenaResultado = "";
+        let matriz = new String();
+        //Otra forma sin utilizar los métodos del objeto String
+        /*  for (var i = 0; i < cadena.length; i++) {
+             cadenaResultado += cadena[i];
+             //Para que no aparezca el guión al final
+             if (i != cadena.length - 1) {
+                 cadenaResultado += "-";
+             }
+         } */
+
+
+        /*  Un método muy útil y versátil es .split(text). Permite dividir un por el substring text utilizándolo como separador las veces que haga falta.
+         Como resultado, devolverá un con cada una de las partes divididas. 
+         Es muy útil para crear arrays, o dividir textos que tienen separadores repetidos (comas, puntos, etc...) en varias partes */
+         
+        matriz = cadena.split("");
+        cadenaResultado = matriz.join("-");
+
+        parrafo.innerHTML = cadenaResultado;
+    }
+
+    window.onload = function () {
+        document.miFormulario.enviar.addEventListener("click", intercalar);
+    }
+</script>
+
+</html>

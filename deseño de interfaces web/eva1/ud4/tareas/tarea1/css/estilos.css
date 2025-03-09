@@ -1,0 +1,210 @@
+/* Resetear margenes y rellenos */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root {
+    --fondo: url(../images/imagenFondo.png);
+    --elementoSeleccionado: rgba(112, 79, 29, 0.377);
+    --enlaceHover: rgb(218, 212, 212);
+    --colorAside: linear-gradient(90deg, rgba(94, 23, 9, 1) 0%, rgba(253, 29, 29, 0.8799894957983193) 38%, rgba(252, 176, 69, 1) 100%);
+    --colorHeader: radial-gradient(circle, rgba(10, 12, 19, 0.3897934173669467) 0%, rgba(193, 23, 57, 1) 100%);
+}
+
+/* FUENTES */
+@font-face {
+    font-family: 'Titulo';
+    src: url(../fonts/Amaze.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Castellano';
+    src: url(../fonts/SecretAgent.ttf);
+}
+
+@font-face {
+    font-family: Ingles;
+    src: url(../fonts/East-Side-Italic.ttf);
+}
+
+
+html {
+    height: 100vh; /* Asegura que el body tenga al menos la altura de la ventana */
+    width: 100vw;
+    overflow: auto;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-image: var(--fondo);
+    background-size: cover; /* Ajusta la imagen para cubrir el fondo sin desbordarse */
+    background-position: center; /* Centra la imagen dentro del contenedor */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+}
+
+/* Contenedor principal de la pagina */
+
+.contenedor {
+    display: flex;
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*Todos los items hijos de contenedor crecen y ocupan el 100%*/
+/* .contenedor>* {
+    flex: 1 100%;
+} */
+
+/* .contenido{
+    height: 80vh;
+
+     Ahora tenemos que crear la estructura flex dentro de contenido 
+    display: flex;
+    flex-flow: row wrap;
+} */
+
+.header {
+    background: var(--colorHeader);
+    height: 10vh; 
+    flex: 1 100%; /* Propiedad del header como hijo */
+    /* Vamos a crear un nuevo contenedor flex en el header para las opciones */
+    display: flex; /** Flex como padre **/
+    justify-content: space-around;
+    align-items: center; /* Alinear verticalmente */
+}
+
+.header ul {
+    border-top: 0.1em solid rgb(224, 186, 186);
+    border-bottom: 0.1em solid rgb(221, 191, 191);
+    flex-basis: 90%; /* Flex como hijo */
+    display: flex; /* Flex como padre */
+    justify-content: space-evenly;
+}
+
+.header li { display: inline; }
+
+ul a {
+    padding: 1%;
+    flex-grow: 1; /* Permite que las lineas se separen de las opciones */
+    color: white;
+}
+
+ul a:hover {
+    border-left: 0.1em solid rgb(224, 186, 186)k;
+    border-right: 0.1em solid rgb(221, 191, 191);
+    background: rgb(67, 71, 67);
+    transition: 0.5s ease-out;
+}
+
+.main {
+    flex: 1 60%;
+    height: 70vh;
+}
+
+.aside {
+    background: var(--colorAside);
+    flex: 1 40%;
+    height: 70vh;
+    transform: skewX(-15deg) translateX(-100px); /* transform: rotate(90deg); */
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    -moz-border-left-colors: #033 #039 #777 #888 #999 #aaa #bbb #ccc;
+    -moz-border-right-colors: #033 #039 #777 #888 #999 #aaa #bbb #ccc;
+}
+
+.aside>h1 {
+    font-family: 'Castellano';
+    color: aliceblue;
+    font-size: 5em;
+    text-align: center; /* Centra el título */
+    margin-top: 5vh; /* Espacio superior */
+}
+
+/* Vamos a maquetar el footer */
+
+.footer {
+    background: rgb(99, 106, 99);
+    height: 20vh;
+    width: 100%;
+    flex: 1 100%;
+    display: flex; /* Flex como padre */
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Modificar las propiedades de la imagen del logo para que tenga un tamaño predeterminado */
+
+#autor { flex: 1 80%; }
+
+#autor h1 {
+    font-family: 'Titulo';
+    background: linear-gradient(90deg, red, black, gold); /* Gradiente de izquierda a derecha */
+    background-clip: text;
+    color: transparent;
+    font-size: 3rem;
+}
+
+#imagen { flex: 1 20%; }
+
+img {
+    width: 40%;
+    height: 40%;
+    border-radius: 35% 15rem;
+}
+
+/* MEDIA QUERIES */
+
+@media all and (max-width: 800px) {
+    .aside{
+        display: none; /* Oculta el div y desplaza los demás elementos */
+    }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+
+@media (max-width: 768px) {
+    
+}
+
+/* Estilos para pantallas grandes (escritorio) */
+
+@media (min-width: 1024px) {
+    
+}
+
+/* Estilos para tabletas */
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    
+}
+
+/* Estilos para modo vertical */
+
+@media (orientation: portrait) {
+    
+}
+
+/* Estilos para modo horizontal */
+
+@media (orientation: landscape) {
+    
+}
+
+/* Estilos para pantallas más anchas (cine o videojuegos) */
+
+@media (min-aspect-ratio: 16/9) {
+    
+}
+
+/* Estilos solo si el navegador soporta CSS Grid */
+
+@supports (display: grid) {
+    
+}

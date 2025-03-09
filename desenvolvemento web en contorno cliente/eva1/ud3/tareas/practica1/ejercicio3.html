@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Días que quedan hasta una fecha</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <p>Indica la fecha del evento.</p>
+    <!-- En esta solución se realiza la funcionalidad a través del atributo action del formulario.
+        y el método submit asociado a los formularios y al botón de ese tipo -->
+    <form name="miFormulario" action="javascript:calculo()">
+        <input type="date" name="fechaEvento" id="fechaEvento" />
+        <input type="submit" name="enviar" id="boton" value="Enviar fecha"/>        
+    </form>
+    <p id="resultado"></p>
+</body>
+<script>
+    function calculo() {
+        let cadena=document.getElementById("fechaEvento").value;
+        var fArray = cadena.split("-");
+        var fechaEvento = new Date(fArray[0], fArray[1] - 1, fArray[2]);
+        var hoy = new Date();
+        
+        var diasHastaFecha = Math.ceil((fechaEvento - hoy)/(1000*60*60*24)); //La resta de dos fechas genera la diferencia en milisegundos
+        //Utilizo ceil para que no genere decimales
+
+        if (diasHastaFecha < 0) { //Compruebo que sea una fecha actual o futura
+            document.getElementById("resultado").innerHTML = "La fecha ya ha pasado.";
+        } else {
+            document.getElementById("resultado").innerHTML = "Quedan " + diasHastaFecha + " días.";    
+        }
+        
+        document.miFormulario.fechaEvento.value = ""; //Limpio el formulario
+    }
+</script>
+</html>

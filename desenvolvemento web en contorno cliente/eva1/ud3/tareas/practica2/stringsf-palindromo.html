@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejercicio strings f - Palíndromos</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <h1>Comprobar si es palíndromo</h1>
+    <form name="miFormulario">
+        <input type="text" name="texto" id="entrada" placeholder="Introduce aquí la cadena" />
+        <input type="button" name="enviar" id="botonAnadir" value="Enviar texto" />
+    </form>
+    <p id="solucion"></p>
+</body>
+
+<script>
+    function alReves(cadena) {
+        let nuevaCadena=cadena.split('').reverse().join('');
+
+        console.log("Valor de la cadena una vez dada la vuelta: " + nuevaCadena);
+        /* Como podemos comprobar a través de la consola, el resultado nos aparece con cada palabra
+        separada por un espacio, por lo que tenemos que eliminarlos para que nos devuelva el resultado
+        sin dichos espacioes */
+        return nuevaCadena.split(' ').join('');
+    }
+    /* Un palindromo es una palabra o frase cuyas letras están dispuestas de tal manera que resulta la misma leída 
+    de izquierda a derecha que de derecha a izquierda. Por ejemplo: dábale arroz a la zorra el abad*/
+
+    function esPalindromo() {
+        let cadena = document.miFormulario.texto.value;
+        /* Obtenemos el texto introducido por el usuario */
+        const parrafoSolucion = document.getElementById("solucion");
+        /* Obtenemos el objeto donde se va a sacar el resultado. */
+
+        let nuevaCadena=cadena.split(" ");
+
+        /* El métod split cadena.split(' '): Convierte la cadena en un arreglo de caracteres, utilizando como
+        caracter separador el espacio en blanco. Comprobar el resultado poniendo  cadena.split('')*/
+        
+        console.log(nuevaCadena);
+        /* El método join une los elementos de una matriz */
+        
+        let procesado=nuevaCadena.join("");
+        console.log("esto es "+procesado);
+
+        /* Las instrucciones anteriores se podían hacer en una única línea
+        el echo de que la separe es para ir enterándonos de lo que se hace en cada momento
+        procesado=cadena.split(" ").join("")*/
+       
+        let cadenaAlreves=alReves(cadena);
+        console.log(cadenaAlreves);
+        console.log(typeof(cadenaAlreves))
+
+        if (procesado == cadenaAlreves) {
+            parrafoSolucion.innerHTML = "Es palíndromo";
+        } else {
+            parrafoSolucion.innerHTML = "No es palíndromo";
+        }
+    }
+
+    window.onload = function () {
+        document.miFormulario.enviar.addEventListener("click", esPalindromo, false);
+    }
+</script>
+
+</html>

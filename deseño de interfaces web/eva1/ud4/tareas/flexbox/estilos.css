@@ -1,0 +1,334 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Estilos generales para el contenedor principal de la página */
+.contenedor {
+  margin: auto;
+  /* Centra el contenedor horizontalmente */
+  width: 90%;
+  /* Define el ancho como el 90% del ancho disponible */
+  max-width: 100vw;
+  /* Limita el ancho máximo para que no exceda el viewport */
+
+  display: flex;
+  /* Activa Flexbox para organizar elementos */
+  flex-direction: row;
+  /* Coloca elementos en fila inicialmente */
+  flex-wrap: wrap;
+  /* Permite que los elementos se ajusten en varias filas si no caben en una */
+}
+
+/* Estilos para la cabecera */
+.header {
+  background: #d68080;
+  /* Establece el fondo en un color */
+  width: 100vw;
+  /* Hace que la cabecera ocupe todo el ancho del viewport */
+  height: 20vh;
+  /* Establece la altura como el 20% de la altura del viewport */
+  border: 1px solid rgba(225, 225, 226, 0.8);
+  /* Aplica un borde con opacidad para suavizar el efecto */
+  box-shadow: 0px 0px 10px #ccc;
+  /* Agrega una sombra suave alrededor de la cabecera */
+
+  display: flex;
+  /* Activa Flexbox para los elementos internos de la cabecera */
+  flex-wrap: wrap;
+  /* Permite que los elementos dentro de la cabecera se ajusten en varias filas si es necesario */
+  align-items: center;
+  /* Centra los elementos verticalmente dentro de la cabecera */
+  justify-content: center;
+  /* Centra los elementos horizontalmente dentro de la cabecera */
+}
+
+.header h2 {
+  color: aliceblue;
+  text-transform: uppercase;
+}
+
+/* Inicio contenido--> Esta formado por main y por aside */
+/* Contenedor para el área de contenido principal */
+.contenido {
+  display: flex; /* Activa Flexbox para organizar elementos */
+  flex-direction: row; /* Coloca elementos en fila */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas */
+  justify-content: space-between; /* Separa los elementos horizontalmente */
+  background: beige; /* Fondo beige para la sección */
+  gap: 20px; /* Espacio entre los elementos dentro de .contenido */
+}
+
+/* Sección principal (main content) */
+.main {
+  flex-basis: 65%; /* Ocupa aproximadamente el 65% del ancho de .contenido */
+  flex-grow: 1; /* Permite que la sección crezca si hay espacio disponible */
+  order: 2; /* Ordena esta sección para que aparezca después de la barra lateral */
+
+  display: flex; /* Activa Flexbox dentro de .main */
+  flex-direction: column; /* Organiza elementos internos en columna */
+  flex-wrap: wrap; /* Permite que los elementos internos se ajusten en filas */
+}
+
+/* Barra lateral (aside) */
+.aside {
+  flex-basis: 25%; /* Ocupa aproximadamente el 25% del ancho de .contenido */
+  flex-grow: 1; /* Permite que la sección crezca si hay espacio */
+  order: 1; /* Ordena esta sección para que aparezca antes de .main */
+ 
+  display: flex; /* Activa Flexbox para los elementos internos */
+  flex-direction: column; /* Organiza los elementos en columna */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten si no caben */
+}
+
+/* Encabezado dentro de la barra lateral */
+.aside h3 {
+  align-self: center; /* Centra horizontalmente el h3 dentro de aside */
+  font-weight: 200; /* Fuente de peso ligero */
+  font-size: 2rem; /* Tamaño de fuente grande */
+
+  color: rgb(125, 125, 179); /* Color gris azulado */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  margin-bottom: 10px; /* Margen inferior */
+  flex-grow: 1; /* Permite que el encabezado crezca dentro de su contenedor */
+}
+
+/* Texto en la barra lateral */
+.aside p {
+  font-size: 16px; /* Tamaño de fuente estándar */
+  color: rgb(39, 39, 73); /* Color oscuro para el texto */
+  margin-bottom: 10px; /* Espacio inferior */
+  text-align: justify; /* Justifica el texto */
+  flex-grow: 1; /* Permite que el párrafo crezca */
+  line-height: 150%; /* Espaciado entre líneas */
+}
+
+/* Estilo para la galería dentro de la barra lateral */
+.aside .galeria {
+  
+  border: 1px solid #ccc; /* Borde gris claro */
+  box-shadow: 0px 0px 10px #444; /* Sombra alrededor de la galería */
+  flex-grow: 1; /* Permite que la galería crezca */
+}
+
+/* Imágenes dentro de la galería de la barra lateral */
+.aside image {
+  width: 100%; /* Las imágenes ocupan el 100% del ancho disponible */
+}
+
+/* Contenedor de información dentro de la sección principal */
+.main .info {
+  flex-basis: auto; /* Ajusta el ancho basado en el contenido */
+}
+
+/* Encabezado h1 dentro de la información principal */
+.main .info h1 {
+  color: rgb(144, 226, 43); /* Color verde claro */
+  font-weight: lighter; /* Fuente de peso ligero */
+  font-size: 2rem; /* Tamaño de fuente grande */
+  text-align: center; /* Centra el encabezado */
+  text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+/* Párrafo dentro de la sección de información principal */
+.main .info p {
+  font-size: 16px; /* Tamaño de fuente estándar */
+  color: rgb(39, 39, 73); /* Color oscuro */
+  margin-bottom: 10px; /* Espacio inferior */
+  text-align: justify; /* Justifica el texto */
+  flex-grow: 1; /* Permite que el párrafo crezca */
+  line-height: 150%; /* Espaciado entre líneas */
+}
+
+/* Formulario dentro de la sección principal */
+.main .formulario {
+  flex-grow: 1; /* Permite que el formulario crezca */
+
+  display: flex; /* Activa Flexbox para organizar los elementos */
+  flex-direction: row; /* Coloca los elementos en columna */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten */
+
+  border: 1px solid #ccc; /* Borde gris */
+  margin: 20px; /* Espacio alrededor del formulario */
+}
+
+/* Título del formulario */
+.formulario legend {
+  font-weight: 200; /* Fuente de peso ligero */
+  font-size: 24px; /* Tamaño de fuente moderado */
+  color: rgb(125, 125, 179); /* Color gris azulado */
+  text-align: center; /* Centra el texto */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  flex-basis: 100%; /* Ocupa el 15% del ancho de su contenedor */
+  margin-top: 15px; /* Margen superior */
+}
+
+.formulario ul {
+  flex: basis 100%;
+  flex-grow:1;
+  gap:10px;
+}
+
+/* Lista de elementos dentro del formulario */
+.formulario ul li {
+  display: flex; /* Activa Flexbox para alinear los elementos */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en filas */
+  align-items: center; /* Alinea los elementos al centro verticalmente */
+  justify-content: space-around;
+}
+
+/* Entrada de texto dentro del formulario */
+.formulario ul li input {
+  margin: 10px 10px 0px 0px; /* Espacio alrededor */
+  flex-basis: 65%; /* Ocupa el 65% del ancho */
+}
+
+/* Etiqueta dentro del formulario */
+.formulario ul li label {
+  flex-grow: 1; /* Permite que la etiqueta crezca */
+  font-size: 1em; /* Tamaño de fuente estándar */
+  align-self: center;
+  margin: 10px 10px 0px 10px; /* Espacio alrededor */
+}
+
+/* Área de texto en el formulario */
+.formulario ul li textarea {
+  margin: 10px 10px 0px 0px; /* Espacio alrededor */
+  flex-basis: 65%; /* Ocupa el 65% del ancho */
+}
+
+/* Botón dentro del formulario */
+.formulario ul li button {
+  margin-left: auto; /* Mueve el botón al extremo derecho */
+  margin-right: 10px; /* Espacio a la derecha */
+  margin-top: 10px; /* Espacio superior */
+  margin-bottom: 5px; /* Espacio inferior */
+  padding: 8px 16px; /* Espacio interno */
+  border: none; /* Sin borde */
+  background: #333; /* Fondo oscuro */
+  color: #f2f2f2; /* Texto claro */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  letter-spacing: .09em; /* Espaciado entre letras */
+  border-radius: 2px; /* Bordes redondeados */
+  transition: all 300ms; /* Efecto de transición */
+}
+
+/* Cambio de color al pasar el mouse sobre el botón */
+.formulario ul li button:hover {
+  background: rgb(111, 175, 46); /* Fondo verde */
+}
+
+/* Pie de página */
+.footer {
+  background: #ccc; /* Fondo gris */
+  width: 100%; /* Ocupa todo el ancho */
+  display: flex; /* Activa Flexbox */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten */
+  align-items: center; /* Centra verticalmente los elementos */
+  height: 80px; /* Altura fija */
+  border: 1px solid rgba(225, 225, 226, 0.8); /* Borde con opacidad */
+  box-shadow: 0px 0px 10px #ccc; /* Sombra alrededor */
+}
+
+/* Texto en el pie de página */
+.footer p {
+  font-size: 26px; /* Texto grande */
+  color: aliceblue; /* Texto claro */
+}
+
+/* Sección del autor en el pie de página */
+.footer .autor {
+  margin-left: 20px; /* Espacio a la izquierda */
+  flex-grow: 1; /* Permite que la sección crezca */
+  flex-basis: 65%; /* Ocupa el 65% del ancho */
+}
+
+/* Sección de contacto en el pie de página */
+.footer .contacto {
+  flex-grow: 1; /* Permite que la sección crezca */
+}
+
+/* Explicación de las Media Queries
+
+Pantallas medianas (768px y menos): 
+Se reorganizan los elementos .main y .aside para que ocupen todo el ancho y 
+aparezcan uno debajo del otro. Esto es ideal para tabletas y pantallas de 
+tamaño intermedio.
+
+Pantallas pequeñas (480px y menos): 
+Aquí, se optimizan las propiedades para dispositivos móviles:
+La altura de la cabecera y el pie de página se ajustan automáticamente.
+El tamaño del texto en la cabecera y el pie de página se reduce.
+La dirección del layout en .footer cambia a columna, 
+lo que facilita la lectura y la disposición en pantallas pequeñas.
+*/
+
+/* Media Query para pantallas medianas (tabletas) */
+@media (max-width: 768px) {
+
+  .main,
+  .aside {
+    flex-basis: 100%;
+    /* Ocupa todo el ancho en pantallas medianas */
+    order: initial;
+    /* Restaura el orden natural */
+    margin: 0;
+  }
+
+  
+
+  .contenido {
+    justify-content: center;
+    /* Centra los elementos en la columna */
+  }
+
+
+}
+
+
+
+/* Media Query para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .header {
+    height: auto;
+    /* Ajusta la altura automáticamente */
+    padding: 10px;
+    /* Reduce el padding */
+  }
+
+  .header h2 {
+    font-size: 18px;
+    /* Reduce el tamaño del texto */
+  }
+
+  .main,
+  .aside {
+    padding: 10px;
+  }
+
+  .footer {
+    height: auto;
+    /* Ajusta la altura automáticamente */
+    flex-direction: column;
+    /* Cambia la dirección a columna */
+    align-items: center;
+    padding: 10px;
+  }
+
+  .footer p {
+    font-size: 20px;
+    /* Reduce el tamaño del texto */
+  }
+
+  .footer .autor,
+  .footer .contacto {
+    flex-basis: 100%;
+    /* Ocupa todo el ancho */
+    text-align: center;
+    /* Centra el contenido */
+  }
+}

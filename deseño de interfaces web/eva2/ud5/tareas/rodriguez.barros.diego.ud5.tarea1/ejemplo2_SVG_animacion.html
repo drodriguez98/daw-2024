@@ -1,0 +1,65 @@
+<html>
+
+<head>
+	<title>Texto en movimiento</title>
+
+</head>
+
+<body>
+	<!DOCTYPE html>
+	<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Animación SVG con CSS</title>
+		<style>
+			@keyframes drawPath {
+				from {
+					stroke-dashoffset: 600;
+				}
+				to {
+					stroke-dashoffset: 0;
+				}
+			}
+	
+			@keyframes fillText {
+				from {
+					fill: transparent;
+				}
+				to {
+					fill: rgb(162, 211, 26);
+				}
+			}
+	
+			.path {
+				stroke-dasharray: 600;
+				stroke-dashoffset: 600;
+				animation: drawPath 1.5s forwards;
+			}
+	
+			.text {
+				fill: transparent;
+				animation: fillText 1s forwards;
+				animation-delay: 2.5s;
+			}
+		</style>
+	</head>
+	<body>
+		<svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+			<!-- Línea curva superior -->
+			<path id="curvedPath" d="M50,150 Q300,0 550,150" stroke="green" stroke-width="5" fill="transparent" class="path"/>
+			
+			<!-- Texto siguiendo la línea curva -->
+			<text font-size="50" stroke="black" stroke-width="2" class="text">
+				<textPath href="#curvedPath" startOffset="50%" text-anchor="middle">
+					El Blog del Viajero
+				</textPath>
+			</text>
+		</svg>
+	</body>
+	</html>
+	
+
+</body>
+
+</html>

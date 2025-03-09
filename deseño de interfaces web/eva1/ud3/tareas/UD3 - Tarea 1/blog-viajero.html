@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Blog del Viajero</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Georgia&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            background-color: #f9f6f1;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+
+        a:hover {
+            color: #004d99;
+        }
+
+        /* Header */
+        header {
+            background-color: #ac8962;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            display: flex;
+            gap: 1rem;
+        }
+
+        header nav ul li a {
+            color: white;
+            font-weight: bold;
+        }
+
+        .search-bar input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('img/viaje.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #f9f6f1;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+        }
+
+        .destacados {
+            padding: 2rem;
+            text-align: center;
+            background-color: #f9f6f1;
+        }
+
+        .destacados h2 {
+            color: #3e4a3f;
+            margin-bottom: 1rem;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .carousel article {
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .carousel img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .categorias {
+            padding: 2rem;
+            background-color: #f9f6f1;
+        }
+
+        .categorias h2 {
+            text-align: center;
+            color: #3e4a3f;
+            margin-bottom: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .categoria {
+            background-color: #ac8962;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #ac8962;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        footer .social img {
+            width: 30px;
+            margin: 0 0.5rem;
+        }
+
+        footer p {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">El Blog del Viajero</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#consejos">Consejos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar...">
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Descubre el mundo con una mochila</h1>
+            <p>Inspiración, consejos y guías de viaje para aventureros como tú.</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="destacados">
+            <h2>Entradas Destacadas</h2>
+            <div class="carousel">
+                <article>
+                    <img src="img/asia.jpg" alt="Viaje a Asia">
+                    <h3>Explora Asia</h3>
+                </article>
+                <article>
+                    <img src="img/europa.jpg" alt="Viaje a Europa">
+                    <h3>Aventuras en Europa</h3>
+                </article>
+                <article>
+                    <img src="img/africa.jpg" alt="Viaje a África">
+                    <h3>Safaris en África</h3>
+                </article>
+            </div>
+        </section>
+
+        <section class="categorias">
+            <h2>Categorías</h2>
+            <div class="grid">
+                <div class="categoria">
+                    <h3>Asia</h3>
+                </div>
+                <div class="categoria">
+                    <h3>Europa</h3>
+                </div>
+                <div class="categoria">
+                    <h3>América</h3>
+                </div>
+                <div class="categoria">
+                    <h3>África</h3>
+                </div>
+                <div class="categoria">
+                    <h3>Oceanía</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social">
+                <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
+            </div>
+            <p>© 2025 El Blog del Viajero. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

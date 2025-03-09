@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link rel="stylesheet" href="./css/styles.css">
+	<script src="./js/crearVentana.js"></script>
+
+	<title>Crear elemento HTML</title>
+
+</head>
+
+<body>
+
+
+	<form id="pago" action="javascript:void(0)">
+
+		<legend>Datos personales</legend>
+		<ol>
+			<li>
+				<label for="nombre">Nombre</label>
+				<input id="nombre" name="nombre" type="text" placeholder="Escribe tu nombre completo" required
+					autofocus>
+			</li>
+
+			<li>
+				<label for="apellido">Apellido</label>
+				<input id="apellido" name="apellido" type="text">
+			</li>
+			<li>
+				<label for="domicilio">Domicilio</label>
+				<input id="domicilio" name="domicilio" type="text">
+			</li>
+
+
+
+		</ol>
+
+		<fieldset>
+			<button id="idEnviar" value="Enviar">Enviar</button>
+			<button id="idBorrar"  value="Borrar"> Borrar</button>
+			<button id="idAyuda"  value="Ayuda"> Ayuda</button>
+		</fieldset>
+
+		<br>
+
+	</form>
+	<br>
+	<div id="parrafoAyuda"> Ayuda <br>Este texto sera el correspondiente a la ayuda y aparece cuando el usuario lo
+		solicita
+		<br> <br> <button value=CerrarAyuda id="idCerrarAyuda" > Cerrar Ayuda </button>
+	</div>
+</body>
+
+</html>
