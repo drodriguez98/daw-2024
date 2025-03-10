@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ejercicio 3</title>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      .botones {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 20px;
+      }
+
+      .contenedorImagen {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: max-content;
+        /* Ajusta según tus necesidades */
+      }
+
+      .contenedorImagen img {
+        margin: 10px;
+        /* Espaciado entre imágenes */
+        width: 100px;
+      }
+
+      /* Estilo general para los botones */
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      /* Estilo específico para el botón de izquierda */
+      .btn-left {
+        flex-direction: row-reverse;
+        /* Alinea la flecha a la izquierda */
+      }
+
+      /* Estilo específico para el botón de derecha */
+      .btn-right {
+        flex-direction: row;
+        /* Alinea la flecha a la derecha */
+      }
+
+      /* Asegúrate que las flechas son grandes */
+      button span {
+        font-size: 20px;
+      }
+
+      .btn-mostrarOcultar {
+        background-color: #345cc9;
+      }
+
+      .btn-mostrarOcultar:hover {
+        background-color: #23dae7;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="contenedorImagen" id="imagenes">
+      <img id="0" alt="0" src="imagenes/reverso.jpg" />
+      <img id="1" alt="1" src="imagenes/reverso.jpg" />
+      <img id="2" alt="2" src="imagenes/reverso.jpg" />
+      <img id="3" alt="3" src="imagenes/reverso.jpg" />
+      <img id="4" alt="4" src="imagenes/reverso.jpg" />
+
+      <img id="5" alt="5" src="imagenes/reverso.jpg" />
+      <img id="6" alt="6" src="imagenes/reverso.jpg" />
+      <img id="7" alt="7" src="imagenes/reverso.jpg" />
+      <img id="8" alt="8" src="imagenes/reverso.jpg" />
+      <img id="9" alt="9" src="imagenes/reverso.jpg" />
+    </div>
+    <div class="botones">
+      <button class="btn-left" id="BotonIzquierda"><span>&#8592;</span> Izquierda</button>
+      <button class="btn-mostrarOcultar" id="MostrarOcultar">
+        Mostrar/Ocultar
+      </button>
+      <button class="btn-right" id="BotonDerecha">
+        Derecha <span>&#8594;</span>
+      </button>
+    </div>
+  </body>
+  <script>
+    //Declarar una variable globar para el botón Mostrar/Ocultar
+    var botonMostrar;
+
+    /* En JavaScript, los elementos de tipo 3 corresponden a nodos de texto. Si una imagen en un documento HTML tiene un nodo de tipo 3, eso significa que hay texto en el mismo contenedor o elemento que la imagen.
+    
+    Por ejemplo, si tenemos una estructura HTML como esta:
+    
+            html
+            Copiar
+            <div>
+            <img src="image.jpg" alt="Imagen">
+            Valor de la imagen 
+            </div>
+    En este caso, el nodo de texto (tipo 3) sería el "Valor de la imagen " que está dentro del contenedor <div>, pero no pertenece directamente a la imagen.
+    
+    Explicación sobre el tipo de nodo:
+    Los nodos en el DOM (Document Object Model) tienen diferentes tipos. Los tipos de nodos más comunes son:
+    
+    Nodo de tipo 1: Elemento (por ejemplo, <img>, <div>, etc.).
+    Nodo de tipo 3: Texto (el texto dentro de un elemento, como "Texto adicional").
+    Nodo de tipo 8: Comentarios . */
+
+    /* nextSibling: Devuelve el siguiente nodo hermano sin importar el tipo (puede ser un nodo de texto, comentario o elemento).
+    nextElementSibling: Devuelve el siguiente nodo de elemento (específicamente un elemento HTML como <div>, <p>, etc.). */
+
+    moverDerecha = (evento) => {
+      console.log(evento.target.getAttribute("id"));
+
+      event.preventDefault();
+
+      const objetivo = evento.target;
+      //Comprobar que tenemos un nodo hermano
+      if (objetivo.nextElementSibling) {
+        console.log(objetivo.getAttribute("id"));
+        console.log(objetivo.nextElementSibling);
+        console.log(objetivo.parentNode);
+        objetivo.parentNode.insertBefore(objetivo.nextElementSibling, objetivo);
+      }
+    };
+
+    /*  En JavaScript, previousSibling es una propiedad de los nodos del DOM que te permite acceder al nodo anterior de un nodo hermano dentro de un contenedor o elemento. Es una propiedad que se puede utilizar para navegar hacia atrás en el árbol DOM y obtener el nodo que está antes del nodo actual.
+    let previousNode = currentNode.previousSibling;
+    currentNode: Es el nodo del cual deseas obtener el nodo anterior.
+    previousSibling: Devuelve el nodo anterior al nodo currentNode. Si no existe un nodo anterior (es decir, si el nodo actual es el primer hijo de su padre), devolverá null.
+    Consideraciones:
+     previousSibling devuelve cualquier tipo de nodo (puede ser un nodo de texto, nodo de comentario, o nodo de elemento).
+    Si hay espacios en blanco, saltos de línea o comentarios en el HTML, previousSibling también puede devolver esos nodos de tipo texto o comentario. */
+
+    moverIzquierda = (evento) => {
+      const objetivo = evento.target;
+      console.log(evento.target);
+
+      if (objetivo.previousElementSibling) {
+        objetivo.parentNode.insertBefore(
+          objetivo,
+          objetivo.previousElementSibling
+        );
+      }
+    };
+
+    mostrarOcultar = () => {
+      console.log(botonMostrar.getAttribute("estado")); //De esta forma comprobamos el valor que tiene la propiedad estado
+
+      const nodoImagen = document.querySelectorAll("img");
+      const arrayImagen = Array.from(nodoImagen);
+
+      for (const element of arrayImagen) {
+        if (botonMostrar.getAttribute("estado") == 0) {
+          element.src = "imagenes/" + element.getAttribute("id") + ".jpg";
+        } else {
+          element.src = "imagenes/reverso.jpg";
+        }
+      }
+      if (botonMostrar.getAttribute("estado") == 0)
+        botonMostrar.setAttribute("estado", 1);
+      else botonMostrar.setAttribute("estado", 0);
+    };
+
+    derechaBoton = () => {
+      const nodoImagen = document.querySelectorAll("img");
+      const arrayImagen = Array.from(nodoImagen);
+
+      console.log("Valor del boton" + botonMostrar.getAttribute("estado"));
+
+      for (const element of arrayImagen) {
+        if (element.getAttribute("id") == 9) {
+          element.setAttribute("id", 0);
+        } else {
+          let indice = parseInt(element.getAttribute("id"));
+          element.setAttribute("id", indice + 1);
+        }
+
+        if (botonMostrar.getAttribute("estado") == 1) {
+          element.src = "imagenes/" + element.getAttribute("id") + ".jpg";
+        } else {
+          element.src = "imagenes/reverso.jpg";
+        }
+      }
+    };
+
+    izquierdaBoton = () => {
+      const nodoImagen = document.querySelectorAll("img");
+      const arrayImagen = Array.from(nodoImagen);
+
+      console.log("Valor del boton" + botonMostrar.getAttribute("estado"));
+
+      for (const element of arrayImagen) {
+        if (element.getAttribute("id") == 0) {
+          element.setAttribute("id", 9);
+        } else {
+          let indice = parseInt(element.getAttribute("id"));
+          element.setAttribute("id", indice - 1);
+        }
+
+        if (botonMostrar.getAttribute("estado") == 1) {
+          element.src = "imagenes/" + element.getAttribute("id") + ".jpg";
+        } else {
+          element.src = "imagenes/reverso.jpg";
+        }
+      }
+    };
+
+    window.onload = () => {
+      const imagenes = document.getElementsByTagName("img");
+      console.log(imagenes);
+      console.log(imagenes.length);
+
+      Array.from(imagenes).forEach((item) => {
+        console.log(item.getAttribute("id"));
+      });
+
+      /* En JavaScript, puedes recorrer un HTMLCollection con un bucle for...of o forEach
+        pero antes, debes asegurarte de que el HTMLCollection sea iterable. 
+        Afortunadamente, un HTMLCollection no es directamente iterable como un Array, 
+        pero puedes convertirlo en un iterable de manera sencilla utilizando Array.from()
+        */
+      const nodoImagen = document.querySelectorAll("img");
+      const arrayImagen = Array.from(nodoImagen);
+
+      for (const element of arrayImagen) {
+        console.log(element.getAttribute("id"));
+      }
+
+      arrayImagen.forEach((item) => {
+        console.log(item.nodeType);
+        console.log(typeof item);
+        if (item.nodeType == 1) console.log("Es un nodo de tipo imagen");
+      });
+
+      //Iniciar el botón mostrar/ocultr con un valor por defecto que es estado=0;
+
+      botonMostrar = document.getElementById("MostrarOcultar");
+
+      //Asignar un nuevo atributo al botonMostrar. Con este valor podemos comprobar que el estado de las cartas es ocultas.
+
+      botonMostrar.setAttribute("estado", 0);
+
+      document
+        .getElementById("imagenes")
+        .addEventListener("click", moverIzquierda);
+      document
+        .getElementById("imagenes")
+        .addEventListener("contextmenu", moverDerecha);
+      document
+        .getElementById("MostrarOcultar")
+        .addEventListener("click", mostrarOcultar);
+      document
+        .getElementById("BotonDerecha")
+        .addEventListener("click", derechaBoton);
+      document
+        .getElementById("BotonIzquierda")
+        .addEventListener("click", izquierdaBoton);
+    };
+  </script>
+</html>

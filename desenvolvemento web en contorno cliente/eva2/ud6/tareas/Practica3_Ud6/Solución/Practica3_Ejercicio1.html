@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio DOM, Eventos y funciones</title>
+
+    <style>
+        .caja {
+            width: 80px;
+            height: 80px;
+            top: 300px;
+            float: left;
+            margin-top: 200px;
+            margin: 5px;
+            background: blueviolet;
+            bottom: auto;
+            color: white;
+            text-align: center;
+            align-content: center;
+            font-size: 20px;
+        }
+
+        .naranja {
+            background: orangered;
+        }
+
+        .violeta {
+            background: blueviolet;
+        }
+    </style>
+
+    <script language=JavaScript>
+
+        var clic = false; //variable que controla la pulsacion del enlace
+        var mov_tomy = true; //variable que controla si se mueve o no a tomy
+        var x = 1;
+        var y = 10;
+        var ancho;
+        
+
+        function inicializar() {
+
+
+            document.getElementById("Tomy").style.position = "absolute";
+            document.getElementById("Tomy").style.left = x + "px";
+            document.getElementById("Tomy").style.width = 50 + "px";
+            ancho=parseInt(document.getElementById("Tomy").style.width);
+
+            console.log(document.getElementById("Tomy").style.left);
+            //Asignar eventos teclado   
+            //cada vez que se pulse una tecla se ejecuta la funcion MoverTomy
+
+            document.onkeydown = MoverTomy;
+
+            //al soltar una tecla se ejecuta la funci�n PararTomy
+            document.onkeyup = PararTomy
+
+        }
+
+
+        function MoverTomy() {
+            let x = parseInt(document.getElementById("Tomy").style.left);
+            
+            console.log(window.innerWidth);
+ 
+            console.log(ancho);
+            mov_tomy = true;
+
+            if ((mov_tomy) && (x < window.innerWidth - ancho)) { //tecla pulsada, se mueve tomy
+                x = x + 10;
+                document.getElementById("Tomy").style.left = x + "px";
+            }
+            
+        }
+
+        function PararTomy() {
+            mov_tomy = false;
+            let x = parseInt(document.getElementById("Tomy").style.left);
+            
+            console.log(x);
+            
+            if (x < window.innerWidth - ancho)
+                crearCaja();
+
+        }
+
+        function cambiarPosicion() {
+
+
+            let valor = parseInt(this.getAttribute("id"));
+           /*  document.getElementById("Tomy").style.position = "absolute"; */
+
+            document.getElementById("Tomy").style.left = valor + "px";
+            //Recorrer todas las cajas y asignar estilo original
+            const cajas = document.querySelectorAll('section div');
+            console.log(cajas);
+
+           for (let i = 0; i < cajas.length; i++)
+                cajas[i].setAttribute('class', 'caja violeta'); 
+
+            //Asignar estilos a la caja
+            this.setAttribute('class', 'caja naranja');
+
+            console.log(document.getElementById("Tomy").style.left);
+
+            //Recorrer todas las cajas y asignar estilo original
+        }
+
+        function crearCaja() {
+            //Crear una caja con el valor de la posicion de la imagen
+
+            const caja = document.createElement("div");
+            const seccion = document.getElementById("seccion");
+
+            let etiqueta = document.getElementById("Tomy").style.left;
+
+            let texto = document.createTextNode(etiqueta);
+
+            caja.append(texto);
+
+            let valor = parseInt(document.getElementById("Tomy").style.left);
+
+            caja.setAttribute('id', valor);
+
+            //Asignar estilos a la caja
+            caja.setAttribute('class', 'caja');
+            //Poner las cajas a la escucha del evento click
+            caja.addEventListener('click', cambiarPosicion);
+
+            seccion.append(caja);
+
+        }
+
+        window.onload = inicializar;
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <section id="seccion">
+
+    </section>
+
+
+
+    <div>
+        <br><br><br><br><br><br><br><br>
+        <hr>
+        <hr>
+        <h1>Presiona una tecla para mover el Coche, sueltala para detenerlo<P>
+        <div id="Tomy"><img src="coche.png" alt="" width="50" height="50" /></div>
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>

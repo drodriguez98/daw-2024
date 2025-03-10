@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Practica1_Ejercicio2</title>
+	</head>
+	<body>
+		<form name="formulario">
+			<input type="text" name="texto"/>
+			<input type="button" id="botonCrear" name="crear" value="Crear"/>
+			<input type="button"  id="botonDestruir" name="destruir" value="Destruir"/>
+		</form>
+		<ul id="lista" name="lista">
+			<li>Uno</li>
+			<li>Dos</li>
+			<li>Tres</li>
+			<li>Cuatro</li>
+			<li>Cinco</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		function creaElementoConTexto(elemento, texto) {
+			const nodoTexto = document.createTextNode(texto);
+			const nodoEtiqueta = document.createElement(elemento);
+			nodoEtiqueta.appendChild(nodoTexto);
+
+			return nodoEtiqueta;
+		}
+
+		/* Para enteder como funciona este método vamos a sacar por consola los siguientes objetos. */
+		/* En primer lugar el objeto sobre el que se produce el evento. Por último para poder eleminar un objeto de la estructura DOM necesitamos acceder a su nodo padre */
+		function eliminarLista(evento) {
+			console.log("Objeto sobre el que se produce el evento a través del target" +evento.target);
+			console.log("Nodo padre"+ evento.target.parentNode);
+			evento.target.parentNode.removeChild(evento.target);
+		}
+
+		// En este método eliminamos todos los elementos de la lista
+		function eliminarBoton() {
+
+			const lista = document.getElementById('lista'); //Primero acceder al objeto lista
+
+			// Mientras la lista tenga el primer hijo, lo eliminamos. De esta forma eliminamos todos los hijos del objeto lisat
+			while (lista.firstChild) {
+				lista.removeChild(lista.firstChild);
+			}
+
+		}
+
+		function crear() {
+			const lista = document.getElementById("lista");
+			//Creamos el nuevo elemento con el valor que obtenemos del cuadro de texto. En este caso accedemos con la nomenclatura de los names. 
+			//Probar a resolverlo utilizando los métodos de la estructura DOM
+			const elemento = creaElementoConTexto("li", document.formulario.texto.value);
+			//Añadir el nuevo elemento como hijo del objeto lista. De esta forma lo añade al final de la lista. 
+			//Probar a añadir al inicio de dicha lista
+			lista.appendChild(elemento);
+		}
+
+		window.onload = function() {
+			/* Este instrucción comentada va a permitir que al hacer clic sobre la lista de viñetas se elimine */
+			document.getElementById("lista").addEventListener("click",eliminarLista);
+			document.getElementById("botonDestruir").addEventListener("click",eliminarBoton);
+			document.getElementById("botonCrear").addEventListener("click",crear);
+		}
+		
+	</script>
+	
+</html>
